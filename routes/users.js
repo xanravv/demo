@@ -3,37 +3,27 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const router = express.Router();
+const {ensureAuthenticated} = require('../helpers/auth');
 
-// load user model
 require('../models/User');
 const User = mongoose.model('users');
 
-// user login route
-router.get('/login', (req, res) => {
-    //render sends template from View directory
-    res.render('users/login');
-});
+router.get('/login', (req, res) => {res.render('users/login');});
+router.get('/registerOld', (req, res) => {res.render('users/register');});
+router.get('/profile', (req, res) => {res.render('production/profile');});
 
-// user register route
-router.get('/register', (req, res) => {
-    res.render('users/register');
-});
-
-// user login route
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
-        successRedirect:'/ideas',
-        failureRedirect:'/users/login',
+        successRedirect:'/',
+        failureRedirect:'/',
         failureFlash:true
     })(req, res, next);
 });
 
-
-// user registration
 router.post('/register', (req, res) => {
     let errors = [];
-    if(req.body.password != req.body.password2) {
-        errors.push({text: 'Passwords do not match'});
+    if(!req.body.password) {
+        errors.push({text: 'Geef aub een paswoord op'});
     }
     if(req.body.password.length < 4) {
         errors.push({text: 'Password must be at least 4 characters'});
@@ -44,19 +34,36 @@ router.post('/register', (req, res) => {
             name:req.body.name,
             email:req.body.email,
             password:req.body.password,
-            password2:req.body.password2
         });
     } else {
         User.findOne({email:req.body.email})
         .then (user => {
             if(user){
                 req.flash('error_msg', 'Email already registered')
-                res.redirect('/users/register/');
+                res.redirect('/');
             } else {
                 const newUser = new User ({
-                    name:req.body.name,
+                    firstName:req.body.firstName,
+                    lastName:req.body.lastName,
                     email:req.body.email,
-                    password:req.body.password
+                    age:req.body.age,
+                    bankAccount:req.body.bankAccount,
+                    password:req.body.password,
+                    companyName:req.body.companyName,
+                    companyInformation:req.body.companyInformation,
+                    companySports:[{
+                        sport:req.body.companySport,
+                        price:req.body.companySportPrice
+                    }],
+                    branche:req.body.branche,
+                    location:req.body.location,
+                    personalInformation:req.body.personalInformation,
+                    interests:req.body.interests,
+                    messages:req.body.messages,
+                    notifications:req.body.notifications,
+                    employee:req.body.roleEmployee,
+                    kid:req.body.roleKid,
+                    company:req.body.roleCompany
                 })
 
                 bcrypt.genSalt(10, (err, salt) => {
@@ -64,9 +71,9 @@ router.post('/register', (req, res) => {
                         if(err) {throw err};
                         newUser.password = hash;
                         newUser.save()
-                        .then(user => {
-                            req.flash('success_msg', 'You are now registered and can login');
-                            res.redirect('/users/login');
+                        .then(() => {
+                            req.flash('error', 'Geregistreerd!');
+                            res.redirect('/');
                         })
                         .catch (err => {
                             console.log(err);
@@ -74,16 +81,58 @@ router.post('/register', (req, res) => {
                         })
                     });
                 });
+
             }
         })
     }
 });
 
-// logout user
+router.put('/:id', ensureAuthenticated, (req, res) => {
+    User.findOne({
+        _id: req.params.id
+    })
+        .then(user => {
+            user.firstName = req.body.firstName;
+            user.lastName = req.body.lastName;
+            user.email = req.body.email;
+            user.age = req.body.age;
+            user.bankAccount = req.body.bankAccount;
+            user.subsidyAccount = req.body.subsidyAccount;
+            user.password = req.body.password;
+            user.companyName = req.body.companyName;
+            user.companyInformation = req.body.companyInformation;
+            user.branche = req.body.branche;
+            user.location = req.body.location;
+            user.personalInformation = req.body.personalInformation;
+            user.interests = req.body.interests;
+            user.messages = req.body.messages;
+            user.notifications = req.body.notifications;
+            user.employee = req.body.roleEmployee;
+            user.kid = req.body.roleKid;
+            user.company = req.body.roleCompany;
+
+            bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.hash(req.body.password, salt, (err, hash) => {
+                    if(err) {throw err};
+                    user.password = hash;
+                    user.save()
+                        .then(() => {
+                            req.flash('success_msg', 'Gegevens bijgewerkt');
+                            res.redirect('/');
+                        })
+                        .catch (err => {
+                            console.log(err);
+                            return;
+                        })
+                });
+            });
+        });
+});
+
 router.get('/logout', (req, res) => {
     req.logOut();
     req.flash('success_msg', 'You are logged out');
-    res.redirect('/users/login');
+    res.redirect('/');
 })
 
 module.exports = router;

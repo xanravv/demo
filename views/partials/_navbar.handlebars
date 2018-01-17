@@ -1,41 +1,94 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-3">
-  <div class="container">
-    <a class="navbar-brand" href="/">Notareth</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-      aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <!-- onderstaand komt voor uit globals van app.js -->
-        {{#if user}}
-            <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">Ideas</a>
-              <div class="dropdown-menu">
-                <a href="/ideas" class="dropdown-item">Ideas</a>
-                <a href="/ideas/add" class="dropdown-item">Add Idea</a>
-              </div>
-            </li>
-            <li class="nav-item">
-                <a href="/users/logout" class="nav-link">Logout</a>
-            </li>
-        {{else}}
-            <li class="nav-item">
-                <a href="/users/login" class="nav-link">Login</a>
-            </li>
-            <li class="nav-item">
-                <a href="/users/register" class="nav-link">Register</a>
-            </li>
-        {{/if}}
-      </ul>
+<div class="col-md-3 left_col">
+    <div class="left_col scroll-view">
+        <div class="navbar nav_title" style="border: 0;">
+            <a href="index.html" class="site_title"><span>Subsidy Eindhoven</span></a>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <!-- menu profile quick info -->
+        <div class="profile clearfix">
+            <!--
+            <div class="profile_pic">
+                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+            </div>
+            -->
+            <div class="profile_info">
+                <span>Welkom,</span>
+                <h3>{{user.firstName}} {{user.lastName}} {{user.companyName}}</h3>
+                <span>Token rekening:
+                    <br>
+                    {{user.bankAccount}}</span>
+                <br>
+                {{#if user.subsidyAccount}}
+                    <span>Subsidy rekening:
+                    <br>
+                    {{user.subsidyAccount}}</span>
+                {{/if}}
+            </div>
+        </div>
+        <!-- /menu profile quick info -->
+
+        <br />
+
+        <!-- sidebar menu -->
+        <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+
+                <ul class="nav side-menu">
+                    <li>
+                        <a href="/"><i class="fa fa-home"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/users/profile"><i class="fa fa-user"></i> Profiel</a>
+                    </li>
+                    <!--
+                    <li>
+                        <a href="/inbox"><i class="fa fa-envelope"></i> Inbox <span class="label label-success pull-right">12</span></a>
+                    </li>
+                    <li>
+                        <a href="/contacts"><i class="fa fa-group"></i> Vrienden</a>
+                    </li>
+                    <li>
+                        <a href="/calendar"><i class="fa fa-calendar"></i> Kalender</a>
+                    </li>
+                    -->
+                    <li>
+                        <a href="/kids"><i class="fa fa-child"></i> Kinderen</a>
+                    </li>
+                    <li>
+                        <a href="/companies"><i class="fa fa-bank"></i> Bedrijven</a>
+                    </li>
+                    <li>
+                        <a href="/transactions"><i class="fa fa-euro"></i> Transacties</a>
+                    </li>
+                    {{#if user.municipality}}
+                        <li>
+                            <a href="/transactions/subsidy"><i class="fa fa-euro"></i> Subsidies</a>
+                        </li>
+                    {{/if}}
+                </ul>
+            </div>
+        </div>
+        <!-- /sidebar menu -->
+
+        <!-- /menu footer buttons
+        <div class="sidebar-footer hidden-small">
+            <a data-toggle="tooltip" data-placement="top" title="Settings">
+                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Lock">
+                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <!-- /left col scroll view -->
     </div>
-  </div>
-</nav>
+    <!-- /col-md-3 left col-->
+</div>

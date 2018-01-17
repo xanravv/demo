@@ -1,0 +1,13 @@
+<h1>Dashboard van {{user.firstName}} {{user.lastName}} {{user.companyName}}</h1>
+
+{{#unless user.municipality}}
+    <h4>Token bankrekening: {{user.bankAccount}}</h4>
+{{/unless}}
+
+{{#if user.municipality}}
+    <h4>Subsidie bankrekening: {{user.subsidyAccount}}</h4>
+{{/if}}
+
+{{#if user.company}}
+    <h4>Subsidie bankrekening: {{user.subsidyAccount}}</h4>
+{{/if}}
