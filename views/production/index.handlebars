@@ -2,10 +2,12 @@
 <div class="right_col" role="main">
   <!-- top tiles -->
   <div class="row tile_count">
-    <div class="col-md-4 col-sm-4 col-xs-12 tile_stats_count">
-      <span class="count_top"><i class="fa fa-bank"></i> Token bankrekening:</span>
-      <div class="count">{{user.bankAccount}}</div>
-    </div>
+      {{#unless user.municipality}}
+        <div class="col-md-4 col-sm-4 col-xs-12 tile_stats_count">
+          <span class="count_top"><i class="fa fa-bank"></i> Token bankrekening:</span>
+          <div class="count">{{user.bankAccount}}</div>
+        </div>
+      {{/unless}}
       {{#if user.subsidyAccount}}
         <div class="col-md-4 col-sm-4 col-xs-12 tile_stats_count">
           <span class="count_top"><i class="fa fa-bank"></i> Subsidie bankrekening:</span>
@@ -32,7 +34,7 @@
   <br />
 {{#if user.kid}}
   <div class="row">
-        <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="x_panel tile fixed_height_320 overflow_hidden">
             <div class="x_title">
               <h2>Device Usage</h2>
@@ -111,7 +113,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4 col-sm-4 col-xs-12">
+        <div class="col-md-6 col-sm-6 col-xs-12">
           <div class="x_panel">
               <div class="x_title">
                   <h2>Recent Activities <small>Sessions</small></h2>
@@ -183,7 +185,7 @@
               </div>
           </div>
         </div>
-        <!-- Start to do list -->
+        <!-- Start to do list
         <div class="col-md-4 col-sm-4 col-xs-12">
           <div class="x_panel">
               <div class="x_title">

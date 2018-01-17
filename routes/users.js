@@ -88,6 +88,7 @@ router.post('/register', (req, res) => {
 });
 
 router.put('/:id', ensureAuthenticated, (req, res) => {
+
     User.findOne({
         _id: req.params.id
     })

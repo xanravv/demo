@@ -1,22 +1,13 @@
 <!-- page content -->
 <div class="right_col" role="main">
-  <div class="">
-
     <div class="clearfix"></div>
-
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
 
           <div class="x_content">
             <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
-              <!--
-              <div class="profile_img">
-                <div id="crop-avatar">
 
-                </div>
-              </div>
-              -->
               <h3>{{user.firstName}} {{user.lastName}} {{user.companyName}}</h3>
 
                 {{#if user.kid}}
@@ -59,10 +50,7 @@
 
                 <ul class="list-unstyled user_data">
                     <li>
-                        Beschikbare tokens: {{user.bankAccount}}
-                    </li>
-                    <li>
-                        Beschikbare subsidie: {{user.subsidyAccount}}
+                        Subsidie bankrekening: {{user.subsidyAccount}}
                     </li>
                 </ul>
                 {{/if}}
@@ -106,7 +94,7 @@
         </div>
       </div>
     </div>
-  </div>
+
 </div>
 <!-- /page content -->
 

@@ -1,7 +1,12 @@
 <div class="col-md-3 left_col">
     <div class="left_col scroll-view">
+
+        <div class="profile_pic">
+            <img src="/img/eindhovenLogo.PNG" alt="..." class="img-circle profile_img">
+        </div>
+
         <div class="navbar nav_title" style="border: 0;">
-            <a href="index.html" class="site_title"><span>Subsidy Eindhoven</span></a>
+            <a href="/" class="site_title"><span>Subsidie Eindhoven</span></a>
         </div>
 
         <div class="clearfix"></div>
@@ -16,12 +21,15 @@
             <div class="profile_info">
                 <span>Welkom,</span>
                 <h3>{{user.firstName}} {{user.lastName}} {{user.companyName}}</h3>
-                <span>Token rekening:
-                    <br>
-                    {{user.bankAccount}}</span>
+                {{#unless user.municipality}}
+                    <span>Token rekening:
+                        <br>
+                        {{user.bankAccount}}
+                    </span>
+                {{/unless}}
                 <br>
                 {{#if user.subsidyAccount}}
-                    <span>Subsidy rekening:
+                    <span>Subsidie rekening:
                     <br>
                     {{user.subsidyAccount}}</span>
                 {{/if}}

@@ -258,7 +258,7 @@ html , body{
 }
 .profile_pic {
     width: 35%;
-    float: left
+    float: left;
 }
 .img-circle.profile_img {
     width: 70%;
