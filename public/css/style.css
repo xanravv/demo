@@ -1,10 +1,15 @@
+
 .right_col {
-    background-image:url("https://i.imgur.com/tGPNjTB.jpg")!important;
+    background-image:url("/img/blur.jpg")!important;
     background-size: cover!important;
 }
 
 .left_col {
+    background-image:url("/img/blur2.jpg")!important;
+    background-size: cover!important;
+}
 
+.main_container {
 }
 
 .logo {

@@ -51,6 +51,9 @@ class TransactionClass {
         newSubsidy.save();
     }
 
+    /* TODO:
+    * subtract the money from the "gemeenteEindhoven@mail.com" bankAccount.
+     */
     static increaseSubsidyAccountReceiver (accountId, amount) {
         User.findOne({
             _id: accountId
