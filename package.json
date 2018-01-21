@@ -1,12 +1,12 @@
 {
   "name": "Sub",
   "version": "1.0.0",
-  "description": "App to create video ideas",
+  "description": "",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
   },
-  "author": "Rogier Warnawa",
+  "author": "Roger",
   "license": "Wrx 1",
   "dependencies": {
     "bcryptjs": "^2.4.3",
