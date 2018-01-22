@@ -63,7 +63,6 @@ router.post('/register', (req, res) => {
                     interests:req.body.interests,
                     messages:req.body.messages,
                     notifications:req.body.notifications,
-                    municipality:req.body.roleMunicipality,
                     employee:req.body.roleEmployee,
                     kid:req.body.roleKid,
                     company:req.body.roleCompany
