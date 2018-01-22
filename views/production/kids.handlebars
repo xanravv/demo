@@ -21,7 +21,7 @@
         <div class="clearfix"></div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="">
+                <div class="x_panel">
                     <div class="x_content">
                     <!-- tabel voor werknemers -->
                     {{#if user.employee}}
@@ -33,7 +33,6 @@
                                 <th>Leeftijd</th>
                                 <th>Rekening</th>
                                 <th>Email</th>
-                                <th>Wachtwoord</th>
                                 <th>Edit</th>
                                 <th>Delete</th>
                             </tr>
@@ -46,7 +45,6 @@
                                 <td>{{age}}</span></td>
                                 <td>{{bankAccount}}</span></td>
                                 <td>{{email}}</span></td>
-                                <td>{{password}}</span></td>
                                 <td>
                                     <a class="btn btn-primary inline" href="/kids/edit/{{id}}"><i class="fa fa-pencil"></i> Edit</a>
                                 </td>

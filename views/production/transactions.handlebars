@@ -28,14 +28,14 @@
                     <div class="x_content">
 
 
-                        <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                        <table id="datatable-responsive" class="table table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                             <thead>
                             <tr>
-                                <th>Transactie ID</th>
                                 <th>Van</th>
                                 <th>Naar</th>
                                 <th>Hoeveelheid</th>
                                 <th>Sport</th>
+                                <th>Transactie ID</th>
                                 <th>Datum</th>
                             </tr>
                             </thead>
@@ -43,11 +43,11 @@
                                 <tbody>
                                 {{#each transaction}}
                                     <tr>
-                                        <td>{{id}}</span></td>
                                         <td><a href="/kids/detail/{{from.id}}">{{from.firstName}} {{from.lastName}}</a></td>
                                         <td><a href="/companies/detail/{{to.id}}">{{to.companyName}}</a></td>
                                         <td>{{amount}}</span></td>
                                         <td>{{subject}}</span></td>
+                                        <td>{{id}}</span></td>
                                         <td>{{formatDate date 'llll'}}</span></td>
                                     </tr>
                                 {{/each}}

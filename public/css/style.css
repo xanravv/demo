@@ -1,4 +1,28 @@
+body {
+    font-family: "Arial", Times, serif;
+    color:white;
+}
 
+.top_nav {
+    background: rgba(10, 10, 10, 0.6)!important;
+}
+
+.nav_menu {
+    float: left;
+    background: rgba(10, 10, 10, 0.6)!important;
+    border-bottom: 0px dashed #D9DEE4;
+    margin-bottom: 10px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 8px 6px -6px black;
+}
+
+input[type="text"],input[type="number"], input[type="email"], input[type="password"], textarea {
+
+    background: rgba(10, 10, 10, 0.6);
+    color:white;
+
+}
 .right_col {
     background-image:url("/img/blur.jpg")!important;
     background-size: cover!important;
@@ -47,4 +71,60 @@
     padding : 5px 15px;
 }
 
+.x_content {
+    /*background: rgba(00, 00, 0, 0.6);*/
+    border-radius:10px;
+    padding: 5px;
+    font-size:22px;
+}
 
+.x_panel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px 17px;
+    display: inline-block;
+    border:none;
+    background: rgba(10, 10, 10, 0.6);
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    column-break-inside: avoid;
+    box-shadow: 0 8px 6px -6px black;
+    border-radius:10px;
+}
+
+.page-title {
+    font-size:24px!important;
+}
+.x_title {
+    border-bottom: 2px solid #E6E9ED;
+    padding: 1px 5px 6px;
+    margin-bottom: 10px;
+}
+.x_title .filter {
+    width: 40%;
+    float: right;
+}
+.x_title h2 {
+    margin: 5px 0 6px;
+    float: left;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.x_title h2 small {
+    margin-left: 10px;
+}
+.x_title span {
+    color:white!important;
+}
+.x_content h4 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+h3 {
+    font-size:40px;
+    color:white;
+}

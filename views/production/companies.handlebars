@@ -27,7 +27,7 @@
                     <div class="x_content">
                     <!-- tabel voor werknemers -->
                     {{#if user.employee}}
-                        <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                        <table id="datatable-responsive" class="table table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                             <thead>
                             <tr>
                                 <th>Bedrijfsnaam</th>
@@ -36,7 +36,6 @@
                                 <th>Token rekening</th>
                                 <th>Subsidie rekening</th>
                                 <th>Email</th>
-                                <th>Wachtwoord</th>
                                 <!--<th>Edit</th>-->
                                 <th>Delete</th>
                             </tr>
@@ -50,7 +49,6 @@
                                     <td>{{bankAccount}}</span></td>
                                     <td>{{subsidyAccount}}</span></td>
                                     <td>{{email}}</span></td>
-                                    <td>{{password}}</span></td>
                                     <!--
                                     <td>
                                         <a class="btn btn-primary" href="/companies/edit/{{id}}"><i class="fa fa-pencil"></i> Edit</a>
