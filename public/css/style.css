@@ -24,13 +24,19 @@ input[type="text"],input[type="number"], input[type="email"], input[type="passwo
 
 }
 .right_col {
+    background: rgba(0, 0, 0, 0)!important;
+    /*
     background-image:url("/img/blur.jpg")!important;
     background-size: cover!important;
+    */
 }
 
 .left_col {
+    background: rgba(0, 20, 0, 0.1)!important;
+    /*
     background-image:url("/img/blur2.jpg")!important;
     background-size: cover!important;
+    */
 }
 
 .main_container {
@@ -75,7 +81,7 @@ input[type="text"],input[type="number"], input[type="email"], input[type="passwo
     /*background: rgba(00, 00, 0, 0.6);*/
     border-radius:10px;
     padding: 5px;
-    font-size:22px;
+    font-size:;
 }
 
 .x_panel {
@@ -85,7 +91,7 @@ input[type="text"],input[type="number"], input[type="email"], input[type="passwo
     padding: 10px 17px;
     display: inline-block;
     border:none;
-    background: rgba(10, 10, 10, 0.6);
+    background: rgba(10, 10, 10, 0.4);
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
     column-break-inside: avoid;
@@ -94,7 +100,7 @@ input[type="text"],input[type="number"], input[type="email"], input[type="passwo
 }
 
 .page-title {
-    font-size:24px!important;
+    font-size:;
 }
 .x_title {
     border-bottom: 2px solid #E6E9ED;
@@ -127,4 +133,12 @@ input[type="text"],input[type="number"], input[type="email"], input[type="passwo
 h3 {
     font-size:40px;
     color:white;
+}
+
+a {
+    color:#f5f5f5;
+}
+
+a:hover {
+    color:#3adb15;
 }
