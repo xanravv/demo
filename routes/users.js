@@ -9,7 +9,7 @@ require('../models/User');
 const User = mongoose.model('users');
 
 router.get('/login', (req, res) => {res.render('users/login');});
-router.get('/registerOld', (req, res) => {res.render('users/register');});
+router.get('/register', (req, res) => {res.render('users/register');});
 router.get('/profile', (req, res) => {res.render('production/profile');});
 
 router.post('/login', (req, res, next) => {
@@ -25,9 +25,11 @@ router.post('/register', (req, res) => {
     if(!req.body.password) {
         errors.push({text: 'Geef aub een paswoord op'});
     }
+    /*
     if(req.body.password.length < 4) {
         errors.push({text: 'Password must be at least 4 characters'});
     }
+    */
     if (errors.length > 0) {
         res.render('users/register', {
             errors:errors,
@@ -61,6 +63,7 @@ router.post('/register', (req, res) => {
                     interests:req.body.interests,
                     messages:req.body.messages,
                     notifications:req.body.notifications,
+                    employee:req.body.roleMunicipality,
                     employee:req.body.roleEmployee,
                     kid:req.body.roleKid,
                     company:req.body.roleCompany

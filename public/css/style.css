@@ -17,7 +17,9 @@ body {
     box-shadow: 0 8px 6px -6px black;
 }
 
-input[type="text"],input[type="number"], input[type="email"], input[type="password"], textarea {
+input[type="text"],input[type="number"],
+input[type="email"], input[type="password"],
+input[type="radio"], input[type="checkbox"], textarea {
 
     background: rgba(10, 10, 10, 0.6);
     color:white;
